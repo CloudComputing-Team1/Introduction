@@ -4,10 +4,12 @@
 
 ## 프로젝트 멤버 이름 및 멤버 별 담당한 파트 소개
 
-| Member | 최정혜 | 나상진 | 김범모 | 김윤하 |
-| --- | --- | --- | --- | --- |
-| **Profile** | <div align="center"><img src="https://github.com/jeonghye-choi.png" width="100"><br>[https://github.com/jeonghye-choi](https://github.com/jeonghye-choi)</div> | <div align="center"><img src="https://github.com/Ns-Jin.png" width="100"><br>[https://github.com/Ns-Jin](https://github.com/Ns-Jin)</div> | <div align="center"><img src="https://github.com/BeomMoKim.png" width="100"><br>[https://github.com/BeomMoKim](https://github.com/BeomMoKim)</div> | <div align="center"><img src="https://github.com/xdbsgk.png" width="100"><br>[https://github.com/xdbsgk](https://github.com/xdbsgk)</div> |
-| **담당 파트** | VIM의 Reverse Proxy 및 LoadBalancer 구현 | VIM과 VMM 간 소켓 연결 및 자원 사용량 메시지 송수신 구현 | 웹 서버 도커 컨테이너 생성 및 부하 로직 구현 | VMM 내 자원 사용량 모니터링 및 Auto-Scaling 기능 구현 |
+| | Profile | 담당 파트 |
+| --- | --- | --- |
+| 최정혜 | <div align="center"><img src="https://github.com/jeonghye-choi.png" width="100"><br>[https://github.com/jeonghye-choi](https://github.com/jeonghye-choi)</div> | VIM의 Reverse Proxy 및 LoadBalancer 구현 |
+| 나상진 | <div align="center"><img src="https://github.com/Ns-Jin.png" width="100"><br>[https://github.com/Ns-Jin](https://github.com/Ns-Jin)</div> | VIM과 VMM 간 소켓 연결 및 자원 사용량 메시지 송수신 구현 |
+| 김범모 | <div align="center"><img src="https://github.com/BeomMoKim.png" width="100"><br>[https://github.com/BeomMoKim](https://github.com/BeomMoKim)</div> | 웹 서버 도커 컨테이너 생성 및 부하 로직 구현 |
+| 김윤하 | <div align="center"><img src="https://github.com/xdbsgk.png" width="100"><br>[https://github.com/xdbsgk](https://github.com/xdbsgk)</div> | VMM 내 자원 사용량 모니터링 및 Auto-Scaling 기능 구현 |
 
 
 ## 프로젝트 소개
