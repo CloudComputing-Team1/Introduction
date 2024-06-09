@@ -55,42 +55,77 @@
 ![Autoscaling](./doc/img/Autoscaling.jpg)
 
 ## 개발 결과물을 사용하는 방법 소개 (설치 방법, 동작 방법 등)
-부하를 일으키는 웹을 사용하며 시그널(ex. cpu 사용량 50% 이상 5초 이상 지속) 발생 시 오토스케일링을 수행하는 app_autoscaling.py를 사용하는 방법은 다음과 같습니다. 
-(기존에 Docker, Python이 설치되어 있어야 합니다.)
 
-1. **Clone the repository**
+### 1. 시스템 구성 요소 설치
 
-    ```sh
-    git clone https://github.com/CloudComputing-Team1/cpu_load_web.git
-    cd cpu_load_web
-    ```
+### Virtual Infrastructure Manager (VIM)
 
-2. **Build the Docker image**
+1. **Python 설치:**
+    - Python 3.10 버전을 설치합니다. [Python 공식 웹사이트](https://www.python.org/downloads/)에서 다운로드할 수 있습니다.
+2. **필수 패키지 설치:**
+    - 아래 명령어를 통해 필요한 Python 패키지를 설치합니다.
+        
+        ```
+        pip install flask
+        ```
+        
+3. **VIM 코드 클론:**
+    - GitHub 저장소에서 VIM 코드를 클론합니다.
+        
+        ```
+        git clone https://github.com/CloudComputing-Team1/VIM.git
+        cd VIM
+        ```
+        
+4. **Flask 서버 실행:**
+    - VIM 디렉토리 내에서 VIM.py 파일을 실행하여 Flask 웹 서버를 시작합니다.
+        
+        ```
+        python VIM.py
+        ```
+        
 
-    ```sh
-    docker build -t fog1234/cpu_load_web:3.0 .
-    ```
+### Virtual Machine Monitor (VMM)
 
-3. **Run the Flask application**
+1. **VirtualBox 설치:**
+    - VirtualBox 6.1 버전을 설치합니다. [VirtualBox 공식 웹사이트](https://www.virtualbox.org/)에서 다운로드할 수 있습니다.
+2. **Ubuntu 가상 머신 설정:**
+    - Ubuntu 22.04 이미지를 다운로드하고 VirtualBox에 VM을 생성합니다.
+    - VM 설정: CPU 2개, 메모리 2048MB
+3. **VMM 코드 클론:**
+    - GitHub 저장소에서 VMM 코드를 클론합니다.
+        
+        ```
+        git clone https://github.com/CloudComputing-Team1/VMM.git
+        cd VMM
+        ```
+        
+4. **Docker 설치:**
+    - Ubuntu VM 내에서 Docker를 설치합니다.
+        
+        ```
+        sudo apt update
+        sudo apt install docker.io
+        sudo systemctl start docker
+        sudo systemctl enable docker
+        ```
+        
+5. **VMM Manager 프로세스 설정:**
+    - VMM 디렉토리 내에서 VMM.py 파일을 실행하여 VIM과의 통신을 시작합니다.
+        
+        ```
+        python VMM.py
+        ```
+        
 
-    ```sh
-    docker run -d -p 5000:5000 fog1234/cpu_load_web:3.0
-    ```
+### 2. 시스템 동작 확인
 
-4. **Run the auto-scaling script**
-
-    ```sh
-    python app_autoscaling.py
-    ```
-
-위 방법대로 수행시키면, 시그널에 따라 추가된 컨테이너를 "docker ps" 명령어로 다음과 같이 확인할 수 있습니다. (예시)
-
-    ```sh
-    CONTAINER ID   IMAGE                      COMMAND           CREATED          STATUS          PORTS                                         NAMES
-    6a017491741e   fog1234/cpu_load_web:3.0   "python app.py"   3 minutes ago    Up 3 minutes    0.0.0.0:12221->5000/tcp, :::12221->5000/tcp   loving_hodgkin
-    3ffeab16a5ee   fog1234/cpu_load_web:3.0   "python app.py"   3 minutes ago    Up 3 minutes    0.0.0.0:12220->5000/tcp, :::12220->5000/tcp   inspiring_visvesvaraya
-    42e9bb8dd139   fog1234/cpu_load_web:3.0   "python app.py"   18 minutes ago   Up 18 minutes   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp     nostalgic_driscoll
-    ```
+1. **VIM과 VMM 연결 확인:**
+    - VIM의 Flask 웹 서버가 정상적으로 실행되고 있는지 확인합니다.
+    - VMM의 manager.py가 정상적으로 실행되고 VIM과 소켓 통신이 이루어지고 있는지 확인합니다.
+2. **클라이언트 접속:**
+    - 클라이언트는 VIM의 웹 서버에 접속하여 현재 실행 중인 VMM 및 도커 컨테이너 상태를 확인할 수 있습니다.
+    - 웹 페이지에 표시되는 버튼을 클릭하여 VIM의 Load Balancer를 통해 접속을 시도합니다.
 
 ## 개발 결과물의 활용방안 소개
 
