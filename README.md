@@ -52,7 +52,7 @@
 
 프로젝트의 핵심 기능은 VIM과 VMM 간의 협력적인 작업으로 이루어집니다. VIM은 VM을 관리하고, VMM은 도커 컨테이너를 관리합니다. 다음은 개발 결과물의 주요 기능을 설명한 다이어그램입니다.
 
-![Autoscaling](./doc/img/Autoscaling.jpg)
+![Autoscaling](./doc(영상, PPT, readme_pdf, 이미지)/img/Autoscaling.jpg)
 
 ## 개발 결과물을 사용하는 방법 소개 (설치 방법, 동작 방법 등)
 
